@@ -5,9 +5,9 @@ import { Box,  Button, Card, CardContent, CardMedia, FormControl, Grid, IconButt
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 const AuthForm = ({ isRegister = false }) => {
-  const [email, setEmail] = useState("freiman@gmail.com");
-  const [password, setPassword] = useState("freiman");
-  const [name, setName] = useState("freiman uribe");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { user, login, register } = useAuth();
   const navigate = useNavigate();
