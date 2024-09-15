@@ -1,18 +1,13 @@
 import { useState, useEffect } from "react";
 import {
-  fetchReservations,
+  fetchReservationsClient,
   cancelReservationById,
 } from "../../application/reservationService";
-import { fetchServicesList } from "../../application/serviceService";
-import { fetchUsers } from "../../application/authService";
+// import { fetchServicesList } from "../../application/serviceService";
 import {
   Button,
   Chip,
-  FormControl,
-  InputLabel,
-  MenuItem,
   Paper,
-  Select,
   Stack,
   Table,
   TableBody,
@@ -42,17 +37,18 @@ const ReservationManager = () => {
   // Obtener reservas, usuarios y servicios al cargar el componente
   useEffect(() => {
     const fetchData = async () => {
-      const reservationList = await fetchReservations();
+      const reservationList = await fetchReservationsClient();
+      console.log('🚀 ~ fetchData ~ reservationList:', reservationList)
       setReservations(reservationList);
     };
     fetchData();
-  }, [fetchServicesList]);
+  }, [fetchReservationsClient]);
 
 
   // Eliminar una reserva
   const handleDelete = async (id) => {
     await cancelReservationById(id);
-    const updatedReservations = await fetchReservations();
+    const updatedReservations = await fetchReservationsClient();
     setReservations(updatedReservations);
   };
 

@@ -9,6 +9,10 @@ export const getReservationsList = () => {
   return api.get('/reservation/list');
 };
 
+export const getReservationsClient = () => {
+  return api.get("/reservation/cliente");
+};
+
 export const getReservationById = (id: string) => {
   return api.get(`/reservation/${id}`);
 };

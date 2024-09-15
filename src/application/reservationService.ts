@@ -1,4 +1,12 @@
-import { getReservations, getReservationsList, getReservationById, createReservation, updateReservation, cancelReservation } from '../adapters/outbound/reservationAPI';
+import {
+  getReservationsClient, 
+  getReservations,
+  getReservationsList,
+  getReservationById,
+  createReservation,
+  updateReservation,
+  cancelReservation,
+} from "../adapters/outbound/reservationAPI";
 
 export const fetchReservations = async () => {
   const response = await getReservations();
@@ -7,6 +15,12 @@ export const fetchReservations = async () => {
 
 export const fetchReservationsList = async () => {
   const response = await getReservationsList();
+  console.log('🚀 ~ fetchReservationsList ~ response:', response)
+  return response.data;
+};
+
+export const fetchReservationsClient = async () => {
+  const response = await getReservationsClient();
   return response.data;
 };
 
